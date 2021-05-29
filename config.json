@@ -25,6 +25,6 @@
 		"is": {
 			"admin": "ceo@webart.work"
 		},
-		"urls": ["webart.work", "localhost:8080"]
+		"urls": ["tictactoe.webart.work", "localhost:8080"]
 	}
 }

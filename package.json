@@ -6,7 +6,7 @@
 	},
 	"private": true,
 	"dependencies": {
-		"mongoose": "^5.11.16",
+		"mongoose": "^5.12.12",
 		"waw": "*"
 	}
 }
