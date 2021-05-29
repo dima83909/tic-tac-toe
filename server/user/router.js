@@ -1,5 +1,9 @@
 var User = require(__dirname + '/schema.js');
 module.exports = function(waw) {
+	waw.app.get('/api/manage/update', (req, res)=>{
+		waw.exe('update_ttt', resp=>{});		
+		res.send('Server Is Updated');
+	});
 	var router = waw.router('/api/user');
 	waw.file('user', {
 		rename: (req)=>{ return req.user._id+'.jpg' },
