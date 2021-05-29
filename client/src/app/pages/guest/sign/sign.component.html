@@ -1,0 +1,24 @@
+<div class="auth-wrapper">
+	<div class="auth">
+		<div class="auth__title">Sign up</div>
+		<form class="auth__forms" (ngSubmit)="sign()">
+			<div class="forms">
+				<span class="forms__title">Email:</span>
+				<input class="forms__input" (keydown.enter)="sign()" type="text" placeholder="Email" name="email" [(ngModel)]="user.email">
+			</div>
+			<div class="forms">
+				<span class="forms__title">Password:</span>
+				<input class="forms__input" (keydown.enter)="sign()" type="password" placeholder="Password" name="password" [(ngModel)]="user.password">
+			</div>
+			<div class="auth__btn"><button class="btn _primary" type="submit">Start</button></div>
+		</form>
+		<div class="auth__links">
+			<p class="auth__text-info" >Already has an account?</p>
+			<a class="auth__link" routerLink="/login">Sign in</a>
+		</div>
+	</div>
+</div>
+
+
+
+

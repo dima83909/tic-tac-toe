@@ -1,0 +1,54 @@
+// forms 
+.forms {
+    position: relative;
+    margin: 10px 0;
+    &__title {
+        color: $c-basic;
+        font-size: calc($fs - 2px);
+        line-height: calc($fs - 2px);
+        letter-spacing: 0.01em;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+    }
+    &__input,
+    &__textarea {
+        background-color: $c-white;
+        border: 1px solid $c-border;
+        border-radius: $b-radius;
+        color: $c-basic;
+        font-size: $fs;
+        transition: $transition;
+        width: 100%;
+        display: block;
+        letter-spacing: 0.2px;
+		padding: 10px;
+        &::placeholder {
+            color: $c-grey;
+            transition: $transition;
+        }
+        &:focus {
+            transition: $transition;
+            border-color: $c-sky;
+            color: $c-sky;
+        }
+		&:disabled {
+            background-color: lighten($c-grey, 10%);
+            border-color: $c-grey;
+            color: $c-grey;
+            cursor: default;
+            opacity: 0.6;
+        }
+    }
+    &__input {
+        &[type="time"] {
+            display: block;
+            -webkit-appearance: textfield;
+            -moz-appearance: textfield;
+        }
+    }
+    &__textarea {
+        min-height: 80px;
+        resize: vertical;
+        max-height: 150px;
+    }
+}

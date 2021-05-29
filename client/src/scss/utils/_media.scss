@@ -1,0 +1,44 @@
+// ===== MEDIA MIXINS FOR RESPONSIVE ===== 
+/* USE: @include bp-max(sm)... bp-min... bp-only... */
+$breakpoints-map: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px, xxl: 1980px, ) !default;
+@function breakpoint-next($name, $breakpoints: $breakpoints-map, $breakpoint-names: map-keys($breakpoints)) {
+    $n: index($breakpoint-names, $name);
+    @return if($n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
+}
+@function breakpoint-min($name, $breakpoints: $breakpoints-map) {
+    $min: map-get($breakpoints, $name);
+    @return if($min !=0, $min, null);
+}
+@function breakpoint-max($name, $breakpoints: $breakpoints-map) {
+    $next: breakpoint-next($name, $breakpoints);
+    @return if($next, breakpoint-min($next, $breakpoints) - 0.1, null);
+}
+@mixin bp-min($name, $breakpoints: $breakpoints-map) {
+    $min: breakpoint-min($name, $breakpoints);
+    @if $min {
+        @media (min-width: $min) {
+            @content;
+        }
+    }
+    @else {
+        @content;
+    }
+}
+@mixin bp-max($name, $breakpoints: $breakpoints-map) {
+    $max: breakpoint-max($name, $breakpoints);
+    @if $max {
+        @media (max-width: $max) {
+            @content;
+        }
+    }
+    @else {
+        @content;
+    }
+}
+@mixin bp-only($name, $breakpoints: $breakpoints-map) {
+    @include bp-min($name, $breakpoints) {
+        @include bp-max($name, $breakpoints) {
+            @content;
+        }
+    }
+}

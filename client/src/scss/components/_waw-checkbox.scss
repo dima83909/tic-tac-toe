@@ -1,0 +1,64 @@
+// CHECKBOX
+.waw-checkbox {
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 25px;
+    padding-left: 35px;
+    margin: 10px 0;
+    cursor: pointer;
+    font-size: 16px;
+    user-select: none;
+
+    // hidden toggle input
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+    &:hover input~.checkmark {
+        border: 1.5px solid $sky;
+    }
+
+    input:disabled~.checkmark {
+        background-color: $grey !important;
+    }
+
+    input:checked~.checkmark {
+        background-color: $sky;
+        border: none;
+        transition: 0.2s ease-in-out;
+    }
+
+    input:checked~.checkmark:after {
+        display: block;
+    }
+
+    .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 22px;
+        width: 22px;
+        border-radius: $borderRadius;
+        background-color: $white;
+        border: 1px solid $grey;
+        transition: 0.2s ease-in-out;
+
+        &:after {
+            content: "";
+            position: absolute;
+            display: none;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+            width: 4px;
+            height: 11px;
+            border: solid$white;
+            border-width: 0 2px 2px 0;
+        }
+    }
+}

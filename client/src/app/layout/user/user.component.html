@@ -1,0 +1,23 @@
+<div class="wrapper" id="wrapper">
+	<nav class="nav"(clickOutside)="navToggle=false">
+		<ul class="nav__ul container" [class._active]="navToggle">
+			<li class="nav__li"><a class="nav__a" (click)="navToggle=false" routerLinkActive="_activeLink" [routerLinkActiveOptions]="{ exact: true }" routerLink="/"><span class="material-icons">home</span></a></li>
+			<li class="nav__li _burger">
+				<a class="nav__toggle" (click)="navToggle=!navToggle" [class._active]="navToggle">
+					<span class="nav__toggle-line"></span>
+				</a>
+			</li>
+		</ul>
+		<div class="nav__burger" [class._active]="navToggle">
+			<div class="nav__burger-list">
+				<a class="nav__burger-link nav__burger-user" routerLink="/profile">
+					<span class="material-icons">account_circle</span>
+					<div class="name">{{us.me.name || "Ласкаво просимо)"}}</div>
+				</a>
+			</div>
+		</div>
+	</nav>
+	<div class="main">
+		<router-outlet></router-outlet>
+	</div>
+</div>

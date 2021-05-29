@@ -1,0 +1,90 @@
+@import 'angular';
+
+.profile {
+    background: $c-white;
+    border-radius: $b-radius;
+    &__header {
+        font-weight: $ff-bold;
+        font-size: $fs;
+        text-transform: uppercase;
+        color: $c-basic;
+        padding: 20px;
+        border-bottom: 1px solid $c-border;
+    }
+    &__body {
+        padding: 40px;
+        display: grid;
+        grid-template-columns: 70% 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 0px 0px;
+        grid-template-areas:
+            "info photo"
+            "info logout";
+    }
+    &__info {
+        margin-right: 40px;
+        grid-area: info;
+    }
+    &__photo {
+        grid-area: photo;
+    }
+    &__logout {
+        margin-top: 40px;
+        text-align: center;
+        grid-area: logout;
+    }
+    @include bp-max(sm) {
+        &__body {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto auto auto;
+            gap: 0px 0px;
+            grid-template-areas:
+                "photo"
+                "info"
+                "logout";
+        }
+        &__info {
+            margin-right: 0;
+        }
+        &__logout {
+            margin-bottom: 40px;
+        }
+    }
+}
+.avatar {
+    border-radius: $b-radius-img;
+    border: 1px solid $c-border;
+    position: relative;
+    margin: 0 auto;
+    padding: 5px;
+    &._profile {
+        width: 150px;
+        height: 150px;
+    }
+    &__img {
+        height: 100%;
+        object-fit: cover;
+        border-radius: $b-radius-img;
+    }
+    &__upload {
+        cursor: pointer;
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        width: 30px;
+        height: 30px;
+        border-radius: $b-radius-img;
+        background: $c-sky;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: $transition;
+        &:hover {
+            background: darken($c-sky, 10%);
+        }
+    }
+    &__icon {
+        color: $c-white;
+        font-size: 20px;
+    }
+}

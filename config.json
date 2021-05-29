@@ -1,0 +1,30 @@
+{
+	"name": "wawNgx",
+	"description": "Default waw project with Angular client",
+	"license": "MIT",
+	"production": false,
+	"icon": "/client/src/favicon.ico",
+	"prefix": "wawNgx",
+	"port": 8080,
+	"session": true,
+	"mongo": {
+		"host": "localhost",
+		"port": 27017,
+		"db": "waw"
+	},
+	"parts": {
+		"angular": "waw",
+		"core": "waw",
+		"sem": "waw"
+	},
+	"dependencies": {
+		"mongoose": "*"
+	},
+	"user": {
+		"pages": "login sign reset save",
+		"is": {
+			"admin": "ceo@webart.work"
+		},
+		"urls": ["webart.work", "localhost:8080"]
+	}
+}

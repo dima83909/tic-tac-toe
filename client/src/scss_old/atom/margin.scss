@@ -1,0 +1,51 @@
+/* Add needed sized separeted by space: $margin-px: 0 10 20 30; */
+$margin-px: 0;
+$margin-x-px: 0;
+$margin-y-px: 0;
+$margin-top-px: 0;
+$margin-bottom-px: 0 15;
+$margin-left-px: 0;
+$margin-right-px: 0;
+
+/* Generators */
+@mixin margin {
+    @each $i in $margin-px {
+        .m#{$i} {
+            margin: #{$i}px !important;
+        }
+    }
+    @each $i in $margin-x-px {
+        .mx#{$i} {
+            margin-left: #{$i}px !important;
+            margin-right: #{$i}px !important;
+        }
+    }
+    @each $i in $margin-y-px {
+        .my#{$i} {
+            margin-top: #{$i}px !important;
+            margin-bottom: #{$i}px !important;
+        }
+    }
+    @each $i in $margin-top-px {
+        .mt#{$i} {
+            margin-top: #{$i}px !important;
+        }
+    }
+    @each $i in $margin-bottom-px {
+        .mb#{$i} {
+            margin-bottom: #{$i}px !important;
+        }
+    }
+    @each $i in $margin-left-px {
+        .ml#{$i} {
+            margin-left: #{$i}px !important;
+        }
+    }
+    @each $i in $margin-right-px {
+        .mr#{$i} {
+            margin-right: #{$i}px !important;
+        }
+    }
+}
+
+@include margin;

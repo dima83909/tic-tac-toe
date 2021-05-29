@@ -1,0 +1,25 @@
+{
+	"priority": 901,
+	"name": "User",
+	"router": "router.js auth.js",
+	"crud": {
+		"create": ["admin"],
+		"update": [{
+			"keys": ["name", "data"]
+		}, {
+			"keys": ["name", "data", "is"],
+			"name": "admin"
+		}],
+		"fetch": ["", "me"],
+		"delete": ["admin"]
+	},
+	"dependencies": {
+		"nodemailer": "*",
+		"nodemailer-sendgrid": "*",
+		"passport-google-oauth": "*",
+		"passport-facebook": "*",
+		"passport-local": "*",
+		"bcrypt-nodejs": "*",
+		"passport": "*"
+	}
+}

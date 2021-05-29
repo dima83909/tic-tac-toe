@@ -1,0 +1,121 @@
+.waw-nav {
+    background: #0082e6;
+    height: 80px;
+    width: 100%;
+    ul {
+        z-index: 1;
+        padding-left: 0;
+        margin: 0;
+        float: right;
+        margin-right: 20px;
+        li {
+            display: inline-block;
+            line-height: 80px;
+            margin: 0 5px;
+            a {
+                color: white;
+                font-size: 17px;
+                padding: 7px 13px;
+                border-radius: 3px;
+                text-transform: uppercase;
+            }
+        }
+    }
+    a.active {
+        background: #1b9bff;
+        transition: .5s;
+    }
+    #check {
+        display: none;
+    }
+}
+
+.waw-nav__logo {
+    color: white;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+}
+
+a {
+    &:hover {
+        background: #1b9bff;
+        transition: .5s;
+    }
+}
+
+.waw-nav__checkbtn {
+    font-size: 30px;
+    color: white;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+
+@media (max-width: 952px) {
+    .waw-nav__logo {
+        font-size: 30px;
+        padding-left: 50px;
+    }
+
+    .waw-nav {
+        ul {
+            li {
+                a {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 858px) {
+    .waw-nav__checkbtn {
+        display: block;
+    }
+    .waw-nav {
+        ul {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            background: #2c3e50;
+            top: 80px;
+            left: -100%;
+            text-align: center;
+            transition: all .5s;
+
+            li {
+                display: block;
+                margin: 50px 0;
+                line-height: 30px;
+
+                a {
+                    font-size: 20px;
+                }
+            }
+        }
+        a {
+            &:hover {
+                background: none;
+                color: #0082e6;
+            }
+        }
+    }
+
+    a.active {
+        background: none;
+        color: #0082e6;
+    }
+    #check {
+        &:checked {
+            ~ {
+                ul {
+                    left: 0;
+                }
+            }
+        }
+    }
+}

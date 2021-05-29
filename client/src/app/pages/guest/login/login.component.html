@@ -1,0 +1,20 @@
+<div class="auth-wrapper">
+	<div class="auth">
+		<div class="auth__title">Log In</div>
+		<form class="auth__forms" (ngSubmit)="login()">
+			<div class="forms">
+				<span class="forms__title">Email:</span>
+				<input class="forms__input" (keydown.enter)="login()" type="text" placeholder="Email" name="email" [(ngModel)]="user.email">
+			</div>
+			<div class="forms">
+				<span class="forms__title">Password:</span>
+				<input class="forms__input" (keydown.enter)="login()" type="password" placeholder="Password" name="password" [(ngModel)]="user.password">
+			</div>
+			<div class="auth__btn"><button class="btn _primary" type="submit">Login</button></div>
+		</form>
+		<div class="auth__links">
+			<a class="auth__link" routerLink="/reset">Forgot password?</a>
+			<a class="auth__link" routerLink="/sign">Don't have an account?</a>
+		</div>
+	</div>
+</div>

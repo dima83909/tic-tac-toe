@@ -1,0 +1,89 @@
+.btn {
+    font-size: $fs;
+    font-weight: $ff-bold;
+    font-family: $ff-base;
+    background-color: $c-sky;
+    border-radius: $b-radius-btn;
+    transition: $transition;
+    color: $c-white;
+	position: relative;
+    padding: 10px 25px;
+    letter-spacing: 1.25px;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+    user-select: none;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+    &._primary {
+        background-color: $c-sky;
+        &:hover {
+            background-color: lighten($c-sky, 10%);
+        }
+    }
+    &._second {
+        border: 2px solid $c-sky;
+        background-color: $c-white;
+        color: $c-sky;
+    }
+    &._danger {
+        background-color: $c-danger;
+        color: white;
+        &:hover {
+            background-color: darken($c-danger, 10%);
+        }
+    }
+    &:disabled {
+        background-color: $c-grey;
+        cursor: default;
+        &:hover {
+            background-color: $c-grey;
+        }
+    }
+    /* ====== if screen <= 'sm' then show icon  ====== */
+    &._primary-sm,
+    &._second-sm,
+    &._danger-sm {
+        @include bp-max(sm) {
+            min-width: 0;
+            width: 45px;
+            height: 45px;
+            font-size: 0;
+            color: $c-black;
+			border-radius: $b-radius;
+            &::before {
+                font-family: 'Material Icons';
+                font-size: 22px;
+                position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+            }
+        }
+    }
+    &._primary-sm {
+        @include bp-max(sm) {
+            &::before {
+                content: "\e876";
+                color: $c-white;
+            }
+        }
+    }
+    &._second-sm {
+        @include bp-max(sm) {
+            &::before {
+                content: "\e5cd";
+                color: $c-sky;
+            }
+        }
+    }
+    &._danger-sm {
+        @include bp-max(sm) {
+            &::before {
+                content: "\e872";
+                color: $c-white;
+            }
+        }
+    }
+}

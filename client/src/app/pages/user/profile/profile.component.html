@@ -1,0 +1,28 @@
+<div class="profile container">
+    <div class="profile__header">Profile Settings</div>
+    <div class="profile__body">
+        <div class="profile__info">
+            <div class="forms">
+                <span class="forms__title">Name</span>
+                <input class="forms__input" type="text" name="name" placeholder="Your name" [(ngModel)]="us.me.name" (ngModelChange)="us.update();">
+            </div>
+            <div class="forms">
+                <span class="forms__title">Phone number</span>
+                <input class="forms__input" type="tel" name="number" placeholder="Phone number" [(ngModel)]="us.me.data.phone" (ngModelChange)="us.update();">
+            </div>
+            <div class="forms">
+                <span class="forms__title">Bio</span>
+                <textarea class="forms__textarea" placeholder="Bio" [(ngModel)]="us.me.data.bio" (ngModelChange)="us.update();"></textarea>
+            </div>
+        </div>
+        <div class="profile__photo">
+            <div class="avatar _profile">
+                <img class="avatar__img" width="50" height="50" [src]="us.me.avatarUrl" alt="">
+                <label class="avatar__upload" for="userAvatarUrl"><i class="material-icons avatar__icon">edit</i></label>
+            </div>
+        </div>
+        <div class="profile__logout">
+            <button class="btn _danger" (click)="us.logout();">Logout</button>
+        </div>
+    </div>
+</div>

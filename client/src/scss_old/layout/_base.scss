@@ -1,0 +1,32 @@
+html,
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+* {
+	outline: 0;
+}
+
+html,
+body {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+html {
+	font-size: $fs;
+	overflow: hidden;
+	height: 100vh;
+}
+body {
+	font-family: $ff-base;
+	color: $text;
+	line-height: 1.4;
+	position: relative;
+	overflow: hidden;
+	height: 100vh;
+}
+
+
