@@ -1,7 +1,9 @@
 <div class="wrapper" id="wrapper">
 	<nav class="nav"(clickOutside)="navToggle=false">
 		<ul class="nav__ul container" [class._active]="navToggle">
-			<li class="nav__li"><a class="nav__a" (click)="navToggle=false" routerLinkActive="_activeLink" [routerLinkActiveOptions]="{ exact: true }" routerLink="/"><span class="material-icons">home</span></a></li>
+			<li class="nav__li"><a class="nav__a" (click)="navToggle=false" routerLinkActive="_activeLink" [routerLinkActiveOptions]="{ exact: true }" routerLink="/"><span class="material-icons">home</span></a>
+			</li>
+			<li><a style="color: white" routerLink="tictactoe">Tic-Tac-Toe</a></li>
 			<li class="nav__li _burger">
 				<a class="nav__toggle" (click)="navToggle=!navToggle" [class._active]="navToggle">
 					<span class="nav__toggle-line"></span>

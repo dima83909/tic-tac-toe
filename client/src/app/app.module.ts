@@ -27,6 +27,42 @@ import { WacomModule, MetaGuard } from 'wacom';
 				}
 			},
 			loadChildren: () => import('./pages/user/profile/profile.module').then(m => m.ProfileModule)
+		}, {
+			path: 'tictactoe',
+			canActivate: [MetaGuard],
+			data: {
+				meta: {
+					title: 'Tic-Tac-Toe'
+				}
+			},
+			loadChildren: () => import('./pages/user/tictactoe/tictactoe.module').then(m => m.TictactoeModule)
+		}, {
+			path: 'tictactoe/opponent',
+			canActivate: [MetaGuard],
+			data: {
+				meta: {
+					title: 'Tic-Tac-Toe'
+				}
+			},
+			loadChildren: () => import('./pages/user/tictactoe/withopponent/withopponent.module').then(m => m.WithopponentModule)
+		}, {
+			path: 'tictactoe/friend',
+			canActivate: [MetaGuard],
+			data: {
+				meta: {
+					title: 'Tic-Tac-Toe'
+				}
+			},
+			loadChildren: () => import('./pages/user/tictactoe/withfriend/withfriend.module').then(m => m.WithfriendModule)
+		}, {
+			path: 'tictactoe/computer',
+			canActivate: [MetaGuard],
+			data: {
+				meta: {
+					title: 'Tic-Tac-Toe'
+				}
+			},
+			loadChildren: () => import('./pages/user/tictactoe/withcomputer/withcomputer.module').then(m => m.WithcomputerModule)
 		}]
 	}, {
 		path: '',
