@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UserService } from '@services'
+import { ModalService, UiService } from 'wacom'
 @Component({
 	selector: 'withfriend',
 	templateUrl: './withfriend.component.html',
@@ -7,7 +8,15 @@ import { UserService } from '@services'
 })
 export class WithfriendComponent{
 	constructor(
-		public us: UserService) {}
+		public us: UserService,
+		private modal: ModalService,
+		public ui: UiService) {
+		ui.var.names = {
+			p1: 'Player1',
+			p2: 'Player2'
+		};
+	}
+	public disableModal: boolean  = JSON.parse(localStorage.getItem('disableModal'))
 	public play: number 
 	public winner: string;
 	public player: string = "X";
@@ -24,6 +33,9 @@ export class WithfriendComponent{
 	]
 	public dataX: any = [];
 	public dataO: any = [];
+	disModal() {
+		localStorage.setItem('disableModal', this.disableModal.toString())
+	}
 	step(num, e) {
 		if(!e.target.innerText && !this.winner) {
 			e.target.innerText = this.player
@@ -35,11 +47,11 @@ export class WithfriendComponent{
 					this.us.data.winners[this.player] = 0
 				this.us.data.winners[this.player]++
 				this.us.update()
-				return this.winner = this.player
+				return this.winner = `(${this.player}) ${this.player == 'X' ? this.ui.var.names.p1 : this.ui.var.names.p2}`
 			}
 			this.stepCount++
 			if(this.stepCount == 9) return this.winner = 'DRAW!'
-			this.player == 'X' ? this.player = "O" : this.player = 'X'
+				this.player == 'X' ? this.player = "O" : this.player = 'X'
 		}
 	}
 	resetGame() {
@@ -69,6 +81,13 @@ export class WithfriendComponent{
 				}
 				count = 0;
 			}
+		}
+	}
+	ngOnInit() {
+		if(!this.disableModal) {
+			this.modal.show({
+				component: 'players' 
+			})
 		}
 	}
 }

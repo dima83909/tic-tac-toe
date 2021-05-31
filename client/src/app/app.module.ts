@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { CoreModule } from '@core';
 // config
 import { WacomModule, MetaGuard } from 'wacom';
+import { PlayersComponent } from './modals/players/players.component';
 /*
 *	Routing Management
 */
@@ -128,7 +129,8 @@ const routes: Routes = [ {
 	declarations: [
 		AppComponent,
 		GuestComponent,
-		UserComponent
+		UserComponent,
+  PlayersComponent
 	],
 	imports: [
 		CoreModule,
@@ -150,6 +152,7 @@ const routes: Routes = [ {
 			},
 			modal: {
 				modals: { /* modals */
+			players: PlayersComponent,
 
 				}
 			}
