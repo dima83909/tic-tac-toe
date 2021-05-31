@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
 })
 export class WithcomputerComponent{
 	constructor() {}
-	public play: number 
+	public xoro: string = 'x'
 	public winner: string;
 	public player: string = "X";
 	public win: any = [
@@ -38,7 +38,7 @@ export class WithcomputerComponent{
 		let row, column;
 		if(!e.target.innerText && !this.winner) {
 			e.target.innerHTML = this.human
-			e.target.classList.add('x')
+			this.human == 'X' ? e.target.classList.add('x') : e.target.classList.add('o')
 			switch(num) {
 				case 1: 
 				row = 0; column = 0;
@@ -70,20 +70,23 @@ export class WithcomputerComponent{
 
 			}
 			this.board[row][column] = this.human
-			let outcome = this.checkWinner();
-			if(outcome) {
-				if(outcome == 'tie') {
+			let botMove = this.bestMove();
+			let winner_ = this.checkWinner();
+			if(!winner_) {
+				if(botMove) {
+					this.board[botMove.i][botMove.j] = this.ai
+					this.ceil[botMove.cell].innerHTML = this.ai
+					this.ai == 'O' ? this.ceil[botMove.cell].classList.add('o') : this.ceil[botMove.cell].classList.add('x')
+				}
+			}
+			winner_ = this.checkWinner();
+			if(winner_) {
+				if(winner_ == 'tie') {
 					this.winner = 'DRAW!'
 				} else {
-					this.winner = `${outcome} wins`
+					this.winner = `${winner_} wins!`
 				}
 				return
-			}
-			let botMove = this.bestMove();
-			if(botMove) {
-				this.board[botMove.i][botMove.j] = this.ai
-				this.ceil[botMove.cell].innerHTML = this.ai
-				this.ceil[botMove.cell].classList.add('o')
 			}
 		}
 	}
@@ -100,6 +103,7 @@ export class WithcomputerComponent{
 		["", "", ""],
 		["", "", ""],
 		];
+		if(this.ai == 'X') this.bot_step();
 	}
 	bestMove() {
 		let bestScore = -Infinity;
@@ -109,7 +113,6 @@ export class WithcomputerComponent{
 			for (let j = 0; j < 3; j++) {
 				cell++
 				if(this.board[i][j] == "") {
-					console.log(this.board);
 					this.board[i][j] = this.ai;
 					let score = this.minimax(this.board, 0, true);
 					this.board[i][j] = "";
@@ -197,4 +200,19 @@ export class WithcomputerComponent{
 			return _winner;
 		}
 	};
+	bot_step() {
+		let botMove = this.bestMove();
+		if(botMove) {
+			this.board[botMove.i][botMove.j] = this.ai
+			this.ceil[botMove.cell].innerHTML = this.ai
+			this.ai == 'O' ? this.ceil[botMove.cell].classList.add('o') : this.ceil[botMove.cell].classList.add('x')
+		}
+	}
+	choose_xoro() {
+		this.human = [this.ai, this.ai = this.human][0]
+		if(this.xoro == 'o') {
+			this.bot_step()
+		}
+		this.resetGame()
+	}
 }

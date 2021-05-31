@@ -1,8 +1,8 @@
 <div class="game-wrapper">
-	<span class="game-title"><span [ngClass]="{
+	<span class="game-title" [ngClass]="{
 		xLight : player == 'X',
 		oLight : player == 'O'
-	}">({{player}}) {{ui.var.names[player == 'X'? 'p1' : 'p2']}}</span> Turn</span>
+	}">({{player}}) {{ui.var.names[player == 'X'? 'p1' : 'p2']}} Turn</span>
 	<div style="color: white">
 		DONT SHOW THE WINDOW TO SET NAMES
 		<input [(ngModel)]="disableModal" type="checkbox" (ngModelChange)="disModal()">
@@ -10,10 +10,10 @@
 	<div class="game">
 		<div *ngFor="let cell of [1,2,3,4,5,6,7,8,9]; index as i" (click)="step(i+1, $event)" class="game-item"></div>
 	</div>
-	<span *ngIf="winner" class="game-title game-title--win"><span [ngClass]="{
+	<span *ngIf="winner" class="game-title game-title--win" [ngClass]="{
 		xLight : player == 'X',
 		oLight : player == 'O'
-	}">{{winner}}</span><span *ngIf="winner != 'DRAW!'"> wins!</span></span>
+	}">{{winner}}</span>
 	<button *ngIf="winner" (click)="resetGame()" id="reset-game">Play Again</button>
 	<div style="color: white" class="game__counter">
 		<div class="game__counter-red">(X) {{ui.var.names.p1.toUpperCase()}} WINS: {{us.data.winners.X || 0}}</div>

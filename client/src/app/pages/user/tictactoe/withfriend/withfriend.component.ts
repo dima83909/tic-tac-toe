@@ -47,11 +47,11 @@ export class WithfriendComponent{
 					this.us.data.winners[this.player] = 0
 				this.us.data.winners[this.player]++
 				this.us.update()
-				return this.winner = `(${this.player}) ${this.player == 'X' ? this.ui.var.names.p1 : this.ui.var.names.p2}`
+				return this.winner = `(${this.player}) ${this.player == 'X' ? this.ui.var.names.p1 : this.ui.var.names.p2} wins!`
 			}
 			this.stepCount++
-			if(this.stepCount == 9) return this.winner = 'DRAW!'
-				this.player == 'X' ? this.player = "O" : this.player = 'X'
+			if(this.stepCount == 9) return this.winner = 'DRAW!';
+			this.player == 'X' ? this.player = "O" : this.player = 'X'
 		}
 	}
 	resetGame() {
@@ -65,6 +65,7 @@ export class WithfriendComponent{
 		this.dataX = [];
 		this.stepCount = 0;
 		this.winner = ''
+		this.player = 'X'
 	}
 	checkWin(arr, number) {
 		for (var w = 0, wLen = this.win.length; w < wLen; w++) {
