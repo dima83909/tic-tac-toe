@@ -29,7 +29,7 @@ export class WithfriendComponent{
 			this.dataX.push(num) && e.target.classList.add('x') :
 			this.dataO.push(num) && e.target.classList.add('o')
 			if((this.dataO.length > 2 || this.dataX.length > 2) && (this.checkWin(this.dataO, num) || this.checkWin(this.dataX, num))) {
-				return this.winner = 'Player won: ' + this.player; 
+				return this.winner = `${this.player} wins!`
 			}
 			this.stepCount++
 			if(this.stepCount == 9) return this.winner = 'DRAW!'
