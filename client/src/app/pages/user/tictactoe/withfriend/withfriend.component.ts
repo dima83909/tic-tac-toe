@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
+import { UserService } from '@services'
 @Component({
 	selector: 'withfriend',
 	templateUrl: './withfriend.component.html',
 	styleUrls: ['./withfriend.component.scss']
 })
 export class WithfriendComponent{
-	constructor() {}
+	constructor(
+		public us: UserService) {}
 	public play: number 
 	public winner: string;
 	public player: string = "X";
@@ -29,6 +31,10 @@ export class WithfriendComponent{
 			this.dataX.push(num) && e.target.classList.add('x') :
 			this.dataO.push(num) && e.target.classList.add('o')
 			if((this.dataO.length > 2 || this.dataX.length > 2) && (this.checkWin(this.dataO, num) || this.checkWin(this.dataX, num))) {
+				if(!this.us.data.winners[this.player])
+					this.us.data.winners[this.player] = 0
+				this.us.data.winners[this.player]++
+				this.us.update()
 				return this.winner = this.player
 			}
 			this.stepCount++

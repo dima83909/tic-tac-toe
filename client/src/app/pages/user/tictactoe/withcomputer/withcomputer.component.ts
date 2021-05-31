@@ -104,14 +104,14 @@ export class WithcomputerComponent{
 	bestMove() {
 		let bestScore = -Infinity;
 		let move;
-		let cell: number = 0
+		let cell: number = -1
 		for (let i = 0; i < 3; i++) {
 			for (let j = 0; j < 3; j++) {
 				cell++
 				if(this.board[i][j] == "") {
-					console.log(this.board[i][j]);
+					console.log(this.board);
 					this.board[i][j] = this.ai;
-					let score = this.minimax(this.board, 0, false);
+					let score = this.minimax(this.board, 0, true);
 					this.board[i][j] = "";
 					if (score > bestScore) {
 						bestScore = score;

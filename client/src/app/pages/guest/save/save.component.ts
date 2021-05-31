@@ -44,7 +44,7 @@ export class SaveComponent {
 						text: "Something went wrong",
 					});
 				}
-				localStorage.setItem('waw_user', JSON.stringify(user));
+				localStorage.setItem('ttt_user', JSON.stringify(user));
 				this.router.navigate(['/tictactoe']);
 			});			
 		});
