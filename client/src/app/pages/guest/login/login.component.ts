@@ -43,7 +43,7 @@ export class LoginComponent {
 						});
 					}
 					localStorage.setItem('waw_user', JSON.stringify(user));
-					this.router.navigate(['/profile'])
+					this.router.navigate(['/tictactoe'])
 				})
 			} else {
 				this.alert.show({
