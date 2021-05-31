@@ -11,9 +11,9 @@
 		oLight : player == 'O'
 	}">{{winner}}</span> wins!</span>
 	<button *ngIf="winner" (click)="resetGame()" id="reset-game">Play Again</button>
-	<div style="color: white">
-		<div>X WINS: {{us.data.winners.X || 0}}</div>
-		<div>O WINS: {{us.data.winners.O || 0}}</div>
+	<div style="color: white" class="game__counter">
+		<div class="game__counter-red">X WINS: {{us.data.winners.X || 0}}</div>
+		<div class="game__counter-green">O WINS: {{us.data.winners.O || 0}}</div>
 		<button (click)="us.data.winners = {}">RESET STATS</button>
 	</div>
 </div>
