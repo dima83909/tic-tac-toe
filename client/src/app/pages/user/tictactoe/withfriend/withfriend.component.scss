@@ -15,6 +15,12 @@
   text-align: center;
   color: #fff;
   padding-top: 20px;
+  @media screen and (max-width: 1300px) {
+    font-size: 28px;
+  }
+  &--win{
+    margin-bottom: 10px;
+  }
 }
 .game {
   display: -webkit-box;
@@ -29,13 +35,13 @@
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   width: 306px;
-  margin: 0 auto 50px;
+  margin: 0 auto;
   border: 1px solid #fff;
   border-radius: 5px;
   box-shadow: 0px 0px 3px #FFf;
-  @media screen and (max-width: 479px) {
+  @media screen and (max-width: 1300px) {
     width: 242px;
-    margin: 0 auto 25px;
+    margin: 0 auto;
   }
 }
 .game-item {
@@ -55,7 +61,7 @@
   align-items: center;
   justify-content: center;
   background: #00000042;
-  @media screen and (max-width: 479px) {
+  @media screen and (max-width: 1300px) {
     width: 80px;
     height: 80px;
     font-size: 50px;
@@ -75,9 +81,10 @@
 #reset-game {
   display: block;
   margin: 0 auto;
-  border: 1px solid #000;
-  border-radius: 20px;
-  background-color: #fff;
+  border: none;
+  border-radius: 5px;
+  background-color: #f99;
+  font-weight: 900;
   padding: 10px 20px;
   cursor: pointer;
   -webkit-transition: all linear 0.3s;
@@ -85,5 +92,5 @@
   transition: all linear 0.3s
 }
 #reset-game:hover {
-  background-color: #ccc
+  box-shadow: 0px 0px 15px #f99;
 }

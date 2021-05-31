@@ -3,6 +3,6 @@
 	<div class="game">
 		<div *ngFor="let cell of [1,2,3,4,5,6,7,8,9]; index as i" (click)="step(i+1, $event)" class="game-item"></div>
 	</div>
-	<span class="game-title">{{winner}}</span>
+	<span class="game-title game-title--win">{{winner}}</span>
 	<button *ngIf="winner" (click)="resetGame()" id="reset-game">Play Again</button>
 </div>
