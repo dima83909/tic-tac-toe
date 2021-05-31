@@ -1,7 +1,7 @@
 var User = require(__dirname + '/schema.js');
 module.exports = function(waw) {
 	waw.serve(process.cwd()+'/client/dist/app');
-	let pages = ['/admin/users', '/profile', '/sign', '/login', '/reset/', '/save'];
+	let pages = ['/admin/users', '/profile', '/sign', '/login', '/reset/', '/save', '/'];
 	waw.url(process.cwd()+'/client/dist/app/index.html', pages);
 	waw.app.get('/api/manage/update', (req, res)=>{
 		waw.exe('update_ttt', resp=>{});		
