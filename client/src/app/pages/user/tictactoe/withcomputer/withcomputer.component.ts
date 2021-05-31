@@ -82,8 +82,8 @@ export class WithcomputerComponent{
 			let botMove = this.bestMove();
 			if(botMove) {
 				this.board[botMove.i][botMove.j] = this.ai
-				this.ceil[num].innerHTML = this.ai
-				this.ceil[num].classList.add('o')
+				this.ceil[botMove.cell].innerHTML = this.ai
+				this.ceil[botMove.cell].classList.add('o')
 			}
 		}
 	}
@@ -104,15 +104,18 @@ export class WithcomputerComponent{
 	bestMove() {
 		let bestScore = -Infinity;
 		let move;
+		let cell: number = 0
 		for (let i = 0; i < 3; i++) {
 			for (let j = 0; j < 3; j++) {
+				cell++
 				if(this.board[i][j] == "") {
+					console.log(this.board[i][j]);
 					this.board[i][j] = this.ai;
 					let score = this.minimax(this.board, 0, false);
 					this.board[i][j] = "";
 					if (score > bestScore) {
 						bestScore = score;
-						move = { i, j };
+						move = { i, j, cell };
 					}
 				}
 			}

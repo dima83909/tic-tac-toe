@@ -68,7 +68,7 @@
   }
 }
 .game-item:hover {
-  background-color: #000000;
+  background-color: #0000005e;
 }
 .game-item.o {
   color: #abfdab;
@@ -93,4 +93,14 @@
 }
 #reset-game:hover {
   box-shadow: 0px 0px 15px #f99;
+}
+
+.xLight {
+  color: #f99;
+  text-shadow: 0px 0px 4px #f99;
+}
+
+.oLight {
+  color: #abfdab;
+  text-shadow: 0px 0px 4px #abfdab;
 }
