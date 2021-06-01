@@ -1,2 +1,2 @@
 export { Authenticated, Guest, Admins, UserService } from './user.service';
-export { AppService } from './appservice.service';
+export { SocketService } from './socket.service';

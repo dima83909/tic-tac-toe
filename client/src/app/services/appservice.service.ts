@@ -42,7 +42,7 @@ export class AppService {
 	});
 	return observable;
 }
-/* Method to create new room, create-room event.*/createNewRoom(): any {
+createNewRoom(): any {
 	this.socket.emit('create-room', { 'createroom': 1 });
 	const observable = new Observable(observer => {
 		this.socket.on('new-room', (data) => {

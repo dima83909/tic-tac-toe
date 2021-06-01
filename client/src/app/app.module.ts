@@ -10,6 +10,7 @@ import { CoreModule } from '@core';
 // config
 import { WacomModule, MetaGuard } from 'wacom';
 import { PlayersComponent } from './modals/players/players.component';
+import { SocketService } from '@services'
 /*
 *	Routing Management
 */
@@ -162,7 +163,7 @@ const routes: Routes = [ {
 			preloadingStrategy: PreloadAllModules
 		})
 	],
-	providers: [ Authenticated, Guest, Admins ],
+	providers: [ Authenticated, Guest, Admins, SocketService ],
 	bootstrap: [ AppComponent ]
 })
 export class AppModule { }
