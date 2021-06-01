@@ -46,3 +46,7 @@ body {
         color: $c-basic;
     }
 }
+.modal-content{
+    max-width: 280px !important;
+    border-radius: 10px;
+}

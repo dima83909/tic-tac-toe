@@ -1,12 +1,14 @@
-<div>
-	<div>
-		Player1
+<div class="modalGame__wrap">
+	<div class="modalGame__input">
+		<p>Player1</p>
 		<input [(ngModel)]="ui.var.names.p1" type="text" placeholder="name">
 	</div>
-	<div>
-		Player2
+	<div class="modalGame__input">
+		<p>Player2</p>
 		<input [(ngModel)]="ui.var.names.p2" type="text" placeholder="name">
 	</div>
-	<button (click)="close()">OK</button>
-	<button (click)="close()">SKIP</button>
+	<div class="modalGame__btn-wrap">
+		<button (click)="close()" class="green-btn">OK</button>
+		<button (click)="close()" class="red-btn">SKIP</button>
+	</div>
 </div>

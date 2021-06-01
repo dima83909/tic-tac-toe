@@ -18,8 +18,14 @@
   @media screen and (max-width: 1300px) {
     font-size: 28px;
   }
+  @media screen and (max-width: 550px) {
+      font-size: 16px;
+      padding: 20px 10px 0 10px;
+      text-align: end;
+  }
   &--win{
     margin-bottom: 10px;
+    text-align: center;
   }
 }
 .game {
@@ -68,6 +74,19 @@
       color: #fff;
       cursor: pointer;
       margin-top: 5px;
+    }
+  }
+  &__show{
+    color: white;
+    font-size: 13px;
+    padding: 0 10px 10px 30px;
+    display: flex;
+    align-items: center;
+    @media screen and (max-width: 991px) {
+      padding: 0 10px 10px 10px;
+    }
+    &-text{
+      padding-right: 10px;
     }
   }
 }

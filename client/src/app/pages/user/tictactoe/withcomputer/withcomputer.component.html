@@ -1,12 +1,12 @@
 <div class="game-wrapper">
-	<div style="color: white">
+	<div style="color: white" class="game__chose">
 		Choose what you will play
-		<input name="xoro" type="radio" value="x" [(ngModel)]="xoro" (ngModelChange)="choose_xoro()">X
+		<input name="xoro" type="radio" value="x" [(ngModel)]="xoro" (ngModelChange)="choose_xoro()"><span class="xLight xLight--padding">X</span>
 		or
-		<input name="xoro" type="radio" value="o" [(ngModel)]="xoro" (ngModelChange)="choose_xoro()">O
+		<input name="xoro" type="radio" value="o" [(ngModel)]="xoro" (ngModelChange)="choose_xoro()"><span class="oLight xLight--padding">O</span>
 		<button (click)="resetGame()">Reset Game</button>
 	</div>
-	<span class="game-title" [ngClass]="{
+	<span class="game-title game-title--computer" [ngClass]="{
 			xLight : human == 'X',
 			oLight : human == 'O'
 		}">{{human}}`s Turn!</span>

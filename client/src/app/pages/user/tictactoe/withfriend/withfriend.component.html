@@ -2,9 +2,12 @@
 	<span class="game-title" [ngClass]="{
 		xLight : player == 'X',
 		oLight : player == 'O'
-	}">({{player}}) {{ui.var.names[player == 'X'? 'p1' : 'p2']}} Turn</span>
-	<div style="color: white">
-		DONT SHOW THE WINDOW TO SET NAMES
+	}">({{player}}) {{ui.var.names[player == 'X'? 'p1' : 'p2']}} Turn
+	</span>
+	<div class="game__show">
+		<div class="game__show-text">
+			DONT SHOW THE WINDOW TO SET NAMES
+		</div>
 		<input [(ngModel)]="disableModal" type="checkbox" (ngModelChange)="disModal()">
 	</div>
 	<div class="game">
